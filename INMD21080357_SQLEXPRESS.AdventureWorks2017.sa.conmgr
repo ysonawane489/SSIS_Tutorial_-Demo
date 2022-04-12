@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="INMD21080357_SQLEXPRESS.AdventureWorks2017.sa"
+  DTS:DTSID="{38DE528B-1211-414D-9F90-941402E28D50}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=INMD21080357\SQLEXPRESS;User ID=sa;Initial Catalog=AdventureWorks2017;Provider=SQLNCLI11.1;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAf/7btZaZCUqRxHUuJ7WxrgAAAAACAAAAAAADZgAAwAAAABAAAAAqzHrgLDrQw+5yRWjFif2/AAAAAASAAACgAAAAEAAAAKmStXX3FxFlRDVan+ev+hV4AAAAsyqTY1aUCJMZroxcvvb3YPV4+YYGUSzEPh9DrogLfdX5uGTvNqeoTT4x0z2K9UdoRUHuRRAmaaR437MgKeENvNMmwmRi0koIDq62R75c/jAj2BnFlLY+zUyOhGqPLSWk9rfW4uXePS6DwAFczu7cv1DrMeBqI9gEFAAAABWa4rLbbzWfKedX2vR9hqacmjHn</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

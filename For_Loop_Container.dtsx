@@ -1,0 +1,115 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/10/2022 10:41:14 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="INMD21080357"
+  DTS:CreatorName="ASIAPAC\yogesh.sonawane"
+  DTS:DTSID="{A20AD43C-9C7E-44CC-B965-F30BB07E4450}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{2E53977B-8944-4E15-9532-4BD4E9B73854}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[INMD21080357\SQLEXPRESS.SSIS_Tutorial_Demo.sa1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{49F4C01E-EDEB-4622-81F6-5E0E00E747BA}"
+      DTS:ObjectName="INMD21080357\SQLEXPRESS.SSIS_Tutorial_Demo.sa1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=INMD21080357\SQLEXPRESS;User ID=sa;Initial Catalog=SSIS_Tutorial_Demo;Persist Security Info=True;Application Name=SSIS-Package1-{49F4C01E-EDEB-4622-81F6-5E0E00E747BA}INMD21080357\SQLEXPRESS.SSIS_Tutorial_Demo.sa1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAf/7btZaZCUqRxHUuJ7WxrgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB/0dtGGdJDZ++AvZAzSEcRAAAAAASAAACgAAAAEAAAAJzUySwtnszvls2+pSansXcYAAAAa4JIsYFmgk4ac4MmZfOnJD0p0DnfzmypFAAAAPMOYffngNKU+5rmkurnbMPdatXn</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D007A0D3-89F8-4391-AE4A-9F225FAE0D4A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LoopCounter">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\For Loop Container"
+      DTS:AssignExpression="@LoopCounter=@LoopCounter+1"
+      DTS:CreationName="STOCK:FORLOOP"
+      DTS:Description="For Loop Container"
+      DTS:DTSID="{6352B193-5ECB-40E4-88A6-7FC258FF6DF1}"
+      DTS:EvalExpression="@LoopCounter&lt;=10"
+      DTS:ExecutableType="STOCK:FORLOOP"
+      DTS:InitExpression="@LoopCounter=0"
+      DTS:LocaleID="-1"
+      DTS:MaxConcurrent="1"
+      DTS:ObjectName="For Loop Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\For Loop Container\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{28705D5E-5E13-4023-BCBC-DBA7988B3EA3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{49F4C01E-EDEB-4622-81F6-5E0E00E747BA}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[ForLoopContainerDemo]&#xA;([LoopCounter], [LoopCounterStep], [ExecutionDateTime])&#xA;VALUES(@LoopCounter, 'Loop Step' + CAST(@LoopCounter AS VARCHAR(50)), getdate())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="LoopCounter"
+                SQLTask:DtsVariableName="User::LoopCounter"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="11"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\For Loop Container\Execute SQL Task"
+          TopLeft="58,16" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="318,169"
+          Size="318,212"
+          Id="Package\For Loop Container"
+          TopLeft="137,35" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

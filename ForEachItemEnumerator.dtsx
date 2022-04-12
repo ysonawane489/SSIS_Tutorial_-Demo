@@ -1,0 +1,174 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/11/2022 10:21:34 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="INMD21080357"
+  DTS:CreatorName="ASIAPAC\yogesh.sonawane"
+  DTS:DTSID="{B5466A3F-289C-47B3-8272-D5A4B9A13AE6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{156B3102-01B7-4591-8FB4-69117F6D6B06}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[INMD21080357\SQLEXPRESS.SSIS_Tutorial_Demo.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{77A4DBD1-AA1C-4ED4-B730-A91D53503EE1}"
+      DTS:ObjectName="INMD21080357\SQLEXPRESS.SSIS_Tutorial_Demo.sa">
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[User::Database]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[User::Server]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=;User ID=sa;Initial Catalog=;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAf/7btZaZCUqRxHUuJ7WxrgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACeQrSNrVOHPanEroRIuWvqAAAAAASAAACgAAAAEAAAAMlpELyL0vdYYoOf1fZhj/wYAAAAPREuCBZ5Wv7tw5J8eP2BOGGRzK8XfJeGFAAAANyN+o+6WVpSz4/Ku3GTymVTQbyS</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{23FAECB6-73D9-442D-9DFF-76FCC3CE7884}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Database">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E1CE625E-AB94-4C53-9510-5FA0C2E61493}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Server">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{E54B5BF0-83B7-4386-9537-624FAB4F4331}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachItemEnumerator"
+        DTS:DTSID="{A79F98BE-6CB7-403B-A689-C20C6A9DDF5F}"
+        DTS:ObjectName="{A79F98BE-6CB7-403B-A689-C20C6A9DDF5F}">
+        <DTS:ObjectData>
+          <FEIEItems>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="INMD21080357\SQLEXPRESS" />
+              <FEIEItemValue
+                Type="8"
+                Value="NopComm" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="INMD21080357\SQLEXPRESS" />
+              <FEIEItemValue
+                Type="8"
+                Value="AdventureWorks2017" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="INMD21080357\SQLEXPRESS" />
+              <FEIEItemValue
+                Type="8"
+                Value="SSIS_Tutorial_Demo" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="INMD21080357\SQLEXPRESS" />
+              <FEIEItemValue
+                Type="8"
+                Value="SSIS_TASK" />
+            </FEIEItem>
+          </FEIEItems>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{1BCF1168-D90C-4C7B-B459-9142A4CE77BB}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{1A576414-2B12-471F-A48B-919FDC7F82B6}"
+          DTS:ObjectName="{1A576414-2B12-471F-A48B-919FDC7F82B6}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::Server" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{076FA94C-8870-4076-92C0-2755093399B4}"
+          DTS:ObjectName="{076FA94C-8870-4076-92C0-2755093399B4}"
+          DTS:ValueIndex="1"
+          DTS:VariableName="User::Database" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Foreach Loop Container\Data Flow Task"
+          TopLeft="46,34" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="227,131"
+          Size="227,174"
+          Id="Package\Foreach Loop Container"
+          TopLeft="127,58" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
